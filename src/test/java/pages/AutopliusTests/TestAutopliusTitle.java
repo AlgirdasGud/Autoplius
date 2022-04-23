@@ -30,9 +30,9 @@ public class TestAutopliusTitle extends AutopliusBoss{
 // 2. click on EN
         AutopliusTitle.clickEN();
         AutopliusTitle.clickLogin();
-        Common.waitreg();
+      //  Common.waitreg();
 // 3. open registracion popup Click Register
-     //   AutopliusTitle.clickRegistration();
+        AutopliusTitle.clickRegistration();
 //    reikia surasti teisingus xpath'us AutopliusTitle.clickModalOff();
 //  Enter any password
         AutopliusTitle.writeEMail();
