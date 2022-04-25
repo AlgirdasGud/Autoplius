@@ -83,18 +83,7 @@ public class AutopliusTitle  {
 //    }
 
 
-    public static void clickRegistration1() {
-    }
 
-    public static void getloginImputValue() {
-    }
-
-
-    public static void clickLoginAcc() {
-    }
-
-    public static void writeEMail() {
-    }
 }
 
 

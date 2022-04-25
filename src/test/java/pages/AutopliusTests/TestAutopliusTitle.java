@@ -8,7 +8,7 @@ import pages.Common;
 import static pages.Autoplius.AutopliusTitle.getResultTextEN;
 import static pages.Autoplius.AutopliusTitle.getResultTextLV;
 
-public class TestAutopliusTitle extends AutopliusBoss{
+public class TestAutopliusTitle extends AutopliusBoss {
 
     @Test
     public static void testEN() {
@@ -28,9 +28,10 @@ public class TestAutopliusTitle extends AutopliusBoss{
     public void registracija() {
 //  1. Open the page
 // 2. click on EN
-        AutopliusTitle.clickEN();
-        AutopliusTitle.clickLogin();
-      //  Common.waitreg();
+//        AutopliusTitle.clickEN();
+//        AutopliusTitle.clickLogin();
+//        Common.waitReg();
+        StepsBeforeTestLogin.steps();
 // 3. open registracion popup Click Register
         AutopliusTitle.clickRegistration();
 //    reikia surasti teisingus xpath'us AutopliusTitle.clickModalOff();
@@ -45,6 +46,7 @@ public class TestAutopliusTitle extends AutopliusBoss{
 // 11. If the file we are doing a screenshot
         Common.takeScreenshot();
     }
+
     @Test
     public void signout() {
 //  1. Open the page
@@ -54,7 +56,7 @@ public class TestAutopliusTitle extends AutopliusBoss{
         AutopliusTitle.clickLoginAcc();
 //    reikia surasti teisingus xpath'us AutopliusTitle.clickModalOff();
 //  Enter any password
- //       AutopliusTitle.writePassword();
+        //       AutopliusTitle.writePassword();
 // 8. Click Registruotis->
         AutopliusTitle.clickRegistration1();
 // 9. Download popup text

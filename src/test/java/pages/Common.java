@@ -7,6 +7,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+
+import static Utils.Driver.driver;
 
 public class Common {
 
@@ -14,11 +17,11 @@ public class Common {
 
     public static void openLink(String url) {
 
-        Driver.driver.get(url);
+        driver.get(url);
     }
 
     public static WebElement findElement(By locator) {
-        return Driver.driver.findElement(locator);
+        return driver.findElement(locator);
     }
 
     public static void clickElement(By locator) {
@@ -41,10 +44,13 @@ public class Common {
 
         System.out.println("----------------------------------------------------------------------------");
     }
-public  static void waitreg(){
-    WebElement popup = Common.findElement(By.xpath("//*[@id='onetrust-consent-sdk']/div[1]"));
-    WebDriverWait waitreg = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(100));
-    waitreg.until(ExpectedConditions.visibilityOf(popup));
+
+    public static void waitReg() {
+        System.out.println("--------- wait registration modal  --------------");
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//    WebElement popup = Common.findElement(By.xpath("//*[@id='onetrust-consent-sdk']/div[1]"));
+//    WebDriverWait waitreg = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(100));
+//    waitreg.until(ExpectedConditions.visibilityOf(popup));
 }
 
     public static void closeAdd() {

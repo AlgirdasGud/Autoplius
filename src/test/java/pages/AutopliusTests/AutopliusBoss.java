@@ -17,11 +17,9 @@ public class AutopliusBoss {
         Driver.driver.manage().window().maximize();
 
         // Uždaryti reklamą
-        Common.waitForAddPopupToBeVisible();
-        Common.closeAdd();
-//        @Test
-//        public void testAdvancedSerchButton() {
-//
+//        Common.waitForAddPopupToBeVisible();
+//        Common.closeAdd();
+
     }
 
     @AfterTest
