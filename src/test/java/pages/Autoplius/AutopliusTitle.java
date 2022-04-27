@@ -5,7 +5,7 @@ import pages.AutopliusTests.AutopliusBoss;
 
 import pages.Common;
 
-public class AutopliusTitle  {
+public class AutopliusTitle extends AutopliusBoss {
 
 
     public static String getResultTextLV() {
@@ -31,15 +31,12 @@ public class AutopliusTitle  {
     public static void clickLogin() {
         By locator = By.xpath("//*[@class='js-login-btn']");
         Common.clickElement(locator);
-
     }
 
     public static void clickModalOff() {
         By locator = By.xpath("//*[@class='ap-modal-close-btn']");
         Common.clickElement(locator);
-
     }
-//    public static void (input)
 
     public static void enterTextForSearch(String message) {
         By locator = By.xpath("//input[@id='user-message']");
@@ -75,15 +72,29 @@ public class AutopliusTitle  {
         By locator = By.xpath("//*[@class='tab active']");
         Common.clickElement(locator);
     }
-//    String prisijungimoVardas = "kursai.c@gmail.com.";
-//    public String writeEMail() {
-//        By.locator = BY.xpath("");
-//        Common.sendKeys(String,"prisijungimoVardas");
-//              return prisijungimovardas ;
-//    }
 
+    public static void clickLoginButton() {
+        By locator = By.xpath("/html/body/div[4]/div/div/div[2]/div/div/form[2]/div[5]/button");
+        //.By locator = By.xpath("//*[@class='js-form-login-lookup']/*/button[text()='Continue']");
+        Common.clickElement(locator);
+    }
 
+    public static void writePassword() {
+        String password = "Kaunas-Vilnius";
+        By locator = By.xpath("//*[@id='password']");
+        Common.sendKeys(locator, password);
+    }
 
+    public static void clickLoginContinue() {
+        By locator = By.xpath("//*[@class='js-form-login-lookup']/*/button[text()='Continue']");
+        Common.clickElement(locator);
+    }
+
+    public static void writeEMail() {
+        String prisijungimoVardas = "kursai.c@gmail.com";
+        By locator = By.xpath("//*[@id='username-lookup']");
+        Common.sendKeys(locator, prisijungimoVardas);
+    }
 }
 
 

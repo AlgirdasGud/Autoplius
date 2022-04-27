@@ -15,18 +15,20 @@ public class AutopliusBoss {
         // Atidarome puslapį
         Common.openLink("https:Autoplius.lt");
         Driver.driver.manage().window().maximize();
+        Common.waitTime15();
 
-        // Uždaryti reklamą
-//        Common.waitForAddPopupToBeVisible();
-//        Common.closeAdd();
+
+        //Uždaryti reklamą
+        Common.waitForAddPopupToBeVisible();
+        Common.closeAdd();
 
     }
 
-    @AfterTest
-    public void close() {
+//    @AfterTest
+//    public void close() {
 
-        System.out.println("-----------------   Testas baigtas--------------------------");
-        Driver.quit();
+//        System.out.println("-----------------   Testas baigtas--------------------------");
+//        Driver.quit();
     }
     // Įvedame reikšmę, @AfterTest
     //    public void quit() {
@@ -60,7 +62,7 @@ public class AutopliusBoss {
 
     // Palyginimas
 //        Assert.assertEquals(actualOutput, expectedOutput);
-}
+//}
 
 
 

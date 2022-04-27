@@ -14,7 +14,6 @@ import static Utils.Driver.driver;
 public class Common {
 
 
-
     public static void openLink(String url) {
 
         driver.get(url);
@@ -41,28 +40,33 @@ public class Common {
 
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(popup));
-
-        System.out.println("----------------------------------------------------------------------------");
     }
 
-    public static void waitReg() {
-        System.out.println("--------- wait registration modal  --------------");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-//    WebElement popup = Common.findElement(By.xpath("//*[@id='onetrust-consent-sdk']/div[1]"));
-//    WebDriverWait waitreg = new WebDriverWait(Driver.getDriver(),Duration.ofSeconds(100));
-//    waitreg.until(ExpectedConditions.visibilityOf(popup));
-}
-
     public static void closeAdd() {
-        System.out.println(":::::::::::::::::::::: u z d a r o m e ::::::::::::::::::::::::::::");
+        System.out.println("------------- u z d a r o m e rekAMA--------");
         By locator = By.xpath("//*[@id='onetrust-accept-btn-handler']");
         Common.clickElement(locator);
 
+    }
+
+
+    public static void waitForFacebookAddPopupToBeVisible() {
+        WebElement popup = Common.findElement(By.xpath("//*[@id='facebook']/body/div[2]/div[1]"));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(popup));
 
     }
 
-    public static void takeScreenshot() {
+    public static void waitTime15() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
+
+    }
+
+    public static void waitTime10() {
+        System.out.println("--------- wait 5 seconds --------------");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
 }
+
 
 
