@@ -9,6 +9,8 @@ import pages.Autoplius.AutopliusTitle;
 import pages.Autoplius.RegistrationAndLogin;
 import pages.Common;
 
+import static pages.Autoplius.RegistrationAndLogin.getApple;
+
 public class TestRegistrationAndLogin extends AutopliusBoss {
 
 
@@ -17,9 +19,7 @@ public class TestRegistrationAndLogin extends AutopliusBoss {
 //      //  StepsBeforeTestLogin.steps();
         AutopliusTitle.clickEN();
         AutopliusTitle.clickLogin();
-
         Common.waitTime10();
-
         RegistrationAndLogin.clickRegister();
         RegistrationAndLogin.sendNewAccountName();
         RegistrationAndLogin.clickSignup();
@@ -48,24 +48,23 @@ public class TestRegistrationAndLogin extends AutopliusBoss {
 
     }
 
-
     @Test
     public static void testLoginWithGoogle() {
 
 
         AutopliusTitle.clickEN();
         AutopliusTitle.clickLogin();
-
         RegistrationAndLogin.clickGoogle();
-
         System.out.println("---------   waitReg();----------");
-        Common.waitTime15();
+        //Common.waitTime15();
         System.out.println("---------   getGoogle X X;---------");
         // RegistrationAndLogin.clickKitas();
-        System.out.println("---------  pralridom  klikinom kitas;---------");
-        RegistrationAndLogin.getGoogle();
-        System.out.println("Prisijungimo su google tekstas" + RegistrationAndLogin.getGoogle());
-        Assert.assertEquals(RegistrationAndLogin.getGoogle(), "Prisijungimas naudojant 'Google'");
+        System.out.println("---------    Nuskaitom tekstą;---------");
+        Common.waitTime15();
+        RegistrationAndLogin.getGoogleText();
+        System.out.println("Prisijungimo su google tekstas" + RegistrationAndLogin.getGoogleText());
+        Assert.assertEquals(RegistrationAndLogin.getGoogleText(), "Prisijungimas naudojant 'Google'");
+        //Assert.assertEquals("","Prisijungimas naudojant „Google“");
     }
 
     @Test
@@ -76,8 +75,12 @@ public class TestRegistrationAndLogin extends AutopliusBoss {
         AutopliusTitle.clickLogin();
         Common.waitTime15();
         RegistrationAndLogin.clickApple();
+        System.out.println("---------   Prisijungiam su  ----------");
+        Common.waitTime15();
+        System.out.println("---------   Bandom gauti Apple ----------");
+        RegistrationAndLogin.getApple();
         System.out.println(" ***********   " + RegistrationAndLogin.getApple() + "    ************************");
-        Assert.assertEquals("", "");
+        Assert.assertEquals(RegistrationAndLogin.getApple(), "Apple ID");
     }
 
     @Test
@@ -94,5 +97,12 @@ public class TestRegistrationAndLogin extends AutopliusBoss {
         Assert.assertEquals(RegistrationAndLogin.getFacebook(), "Autoplius.lt");
     }
 
-}
+    @Test
+    public static void testLoginAnyName() {
 
+            Assert.assertEquals(RegistrationAndLogin.getFacebook(), "Autoplius.lt");
+        }
+
+
+
+}

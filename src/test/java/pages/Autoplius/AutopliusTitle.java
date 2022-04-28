@@ -33,31 +33,6 @@ public class AutopliusTitle extends AutopliusBoss {
         Common.clickElement(locator);
     }
 
-    public static void clickModalOff() {
-        By locator = By.xpath("//*[@class='ap-modal-close-btn']");
-        Common.clickElement(locator);
-    }
-
-    public static void enterTextForSearch(String message) {
-        By locator = By.xpath("//input[@id='user-message']");
-        Common.sendKeys(locator, message);
-    }
-
-    public static void clickShowMessageButton() {
-        By locator = By.xpath("//form[@id='get-input']/button");
-        Common.clickElement(locator);
-    }
-
-    public static void enterValueToInputFieldA(String value) {
-        By locator = By.xpath("//*[@id='sum1']");
-        Common.sendKeys(locator, value);
-    }
-
-    public static void enterValueToInputFieldB(String value) {
-        By locator = By.xpath("//*[@id='sum2']");
-        Common.sendKeys(locator, value);
-    }
-
     public static void clickSearchButton() {
         By locator = By.xpath("//form[@id='gettotal']/button");
         Common.clickElement(locator);
@@ -65,11 +40,6 @@ public class AutopliusTitle extends AutopliusBoss {
 
     public static void clickReg() {
         By locator = By.xpath("//*[@data-name='register']");
-        Common.clickElement(locator);
-    }
-
-    public static void clickRegistration() {
-        By locator = By.xpath("//*[@class='tab active']");
         Common.clickElement(locator);
     }
 
@@ -95,6 +65,22 @@ public class AutopliusTitle extends AutopliusBoss {
         By locator = By.xpath("//*[@id='username-lookup']");
         Common.sendKeys(locator, prisijungimoVardas);
     }
+
+    public static void clickNewCar() {
+        By locator = By.xpath("");
+        Common.clickElement(locator);
+    }
+
+    public static String getResultText4() {
+        By locator = By.xpath("");
+        return Common.getText(locator);
+    }
+
+    public static String getResultText5() {
+        By locator = By.xpath("");
+        return Common.getText(locator);
+    }
+
 }
 
 

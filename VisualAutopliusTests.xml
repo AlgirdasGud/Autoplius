@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestAutoplius">
+    <test name="TestAutopliusTitle">
+        <classes>
+            <class name="pages.AutopliusTests.TestAutopliusTitle"/>
+        </classes>
+    </test>
+    <test name="TestAcountSetings">
+        <classes>
+            <class name="pages.AutopliusTests.TestAccountSetings"/>
+        </classes>
+    </test>
+    <test name="TestRegistrationAndLogin">
+        <classes>
+            <class name="pages.AutopliusTests.TestRegistrationAndLogin"/>
+        </classes>
+    </test>
+</suite>

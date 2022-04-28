@@ -1,6 +1,7 @@
 package pages.Autoplius;
 
 import org.openqa.selenium.By;
+import org.testng.Assert;
 import pages.AutopliusTests.AutopliusBoss;
 import pages.Common;
 
@@ -49,24 +50,30 @@ public class RegistrationAndLogin extends AutopliusBoss {
     public static String getGoogle() {
 
         By locator = By.xpath("//div[@class='kHn9Lb']");
+
         return Common.getText(locator);
     }
 
     public static String getApple() {
-        By locator = By.xpath("//*[class='ac-localnav-title']");
+        //By locator = By.xpath("//*[class='ac-localnav-title']");
         // By locator = By.xpath("//*[@id='ac-localnav']//*[@class='ac-localnav-title']");
+        //By locator = By.xpath("//div[@id='content'] // div[@class='ac-localnav-title' and span]");
+        By locator = By.cssSelector("html//#signin > app-title > h1");
+        Common.waitTime15();
         return Common.getText(locator);
     }
 
     public static String getLoginText() {
 
         By locator = By.xpath("//*[@class='login-message js-message']");
+
         return Common.getText(locator);
     }
 
     public static String getReg() {
 
         By locator = By.xpath("//form[@class='js-form-registration-email']//*[@type='submit']");
+
         return Common.getText(locator);
     }
 
@@ -99,6 +106,14 @@ public class RegistrationAndLogin extends AutopliusBoss {
         System.out.println("loginame i Accounta");
         By locator = By.cssSelector("body > div.ap-modal.ap-popup > div > div > div.ap-modal-content > div > div > form.js-form-login > div.login-button > button");
         Common.clickElement(locator);
+    }
+
+    public static String getGoogleText() {
+        By locator = By.xpath("//*[@id='initialView']//div[starts-with(text(),'Prisijungimas naudojant')]");
+        //By locator = By.cssSelector("#initialView > div.xkfVF > div > div.Lth2jb > div > div.kHn9Lb");
+        Common.getText(locator);
+
+        return getGoogleText();
     }
 }
 

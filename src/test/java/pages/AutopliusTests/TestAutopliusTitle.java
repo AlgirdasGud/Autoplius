@@ -1,5 +1,6 @@
 package pages.AutopliusTests;
 
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Autoplius.AutopliusTitle;
@@ -23,8 +24,32 @@ public class TestAutopliusTitle extends AutopliusBoss {
         AutopliusTitle.clickLV();
         Assert.assertEquals(getResultTextLV(), "Sludinājumi");
         System.out.println("************** " + getResultTextLV());
+
     }
 
+    @Test
+    public static void testFreeValuation() {
+        AutopliusTitle.clickReg();
+        AutopliusTitle.getResultTextEN();
+        Assert.assertEquals("", "");
+
+    }
+
+    @Test
+    public static void testNewCar() {
+        AutopliusTitle.clickNewCar();
+        AutopliusTitle.getResultText4();
+        Assert.assertEquals("", "");
+
+    }
+
+    @Test
+    public static void testFreeValuation1() {
+        AutopliusTitle.clickReg();
+        AutopliusTitle.getResultText5();
+        Assert.assertEquals("", "");
+
+    }
 
 }
 

@@ -1,11 +1,17 @@
 package pages.AutopliusTests;
 
 import Utils.Driver;
+import Utils.TestListener;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Listeners;
 import pages.Common;
 
+
+
+@Listeners(TestListener.class)
 public class AutopliusBoss {
+
     @BeforeTest
     public void init() {
 
@@ -24,8 +30,8 @@ public class AutopliusBoss {
 
     }
 
-//    @AfterTest
-//    public void close() {
+   @AfterTest
+    public void close() {
 
 //        System.out.println("-----------------   Testas baigtas--------------------------");
 //        Driver.quit();
@@ -62,7 +68,7 @@ public class AutopliusBoss {
 
     // Palyginimas
 //        Assert.assertEquals(actualOutput, expectedOutput);
-//}
+}
 
 
 
