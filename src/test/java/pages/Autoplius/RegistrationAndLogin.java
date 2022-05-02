@@ -6,7 +6,6 @@ import pages.AutopliusTests.AutopliusBoss;
 import pages.Common;
 
 
-
 public class RegistrationAndLogin extends AutopliusBoss {
 
 
@@ -41,39 +40,33 @@ public class RegistrationAndLogin extends AutopliusBoss {
         Common.clickElement(locator);
     }
 
-    public static String getFacebook() {
-        By locator = By.xpath("//*[@class='_50f7']");
-
-        return Common.getText(locator);
-    }
+//    public static String getFacebook() {
+//        By locator = By.xpath("//*[@id='homelink']");
+//        return Common.getText(locator);
+//    }
 
     public static String getGoogle() {
-
         By locator = By.xpath("//div[@class='kHn9Lb']");
-
         return Common.getText(locator);
     }
 
     public static String getApple() {
-        //By locator = By.xpath("//*[class='ac-localnav-title']");
-        // By locator = By.xpath("//*[@id='ac-localnav']//*[@class='ac-localnav-title']");
-        //By locator = By.xpath("//div[@id='content'] // div[@class='ac-localnav-title' and span]");
-        By locator = By.cssSelector("html//#signin > app-title > h1");
-        Common.waitTime15();
+        By locator = By.xpath("//*[@id='apple_id_field_label']");
         return Common.getText(locator);
     }
 
     public static String getLoginText() {
-
         By locator = By.xpath("//*[@class='login-message js-message']");
+        return Common.getText(locator);
+    }
 
+    public static String getLoginErrorText() {
+        By locator = By.xpath("//*[@class='error-message js-error']");
         return Common.getText(locator);
     }
 
     public static String getReg() {
-
         By locator = By.xpath("//form[@class='js-form-registration-email']//*[@type='submit']");
-
         return Common.getText(locator);
     }
 
@@ -87,13 +80,18 @@ public class RegistrationAndLogin extends AutopliusBoss {
         Common.sendKeys(locator, "cekiske@gmail.com");
     }
 
+    public static void sendAnyName() {
+        By locator = By.xpath("//*[@id='username-lookup']");
+        Common.sendKeys(locator, "AAAAA");
+    }
+
     public static void clickAception() {
         By locator = By.xpath("//*[@id='u_0_a_CU']");
         Common.clickElement(locator);
     }
 
     public static void clickKitas() {
-        By locator = By.xpath("////*[@id='identifierNext']/div/button/span ");
+        By locator = By.xpath("//*[@id='identifierNext']/div/button/span ");
         Common.clickElement(locator);
     }
 
@@ -109,11 +107,12 @@ public class RegistrationAndLogin extends AutopliusBoss {
     }
 
     public static String getGoogleText() {
-        By locator = By.xpath("//*[@id='initialView']//div[starts-with(text(),'Prisijungimas naudojant')]");
-        //By locator = By.cssSelector("#initialView > div.xkfVF > div > div.Lth2jb > div > div.kHn9Lb");
-        Common.getText(locator);
-
-        return getGoogleText();
+        By locator = By.xpath("//*[@class='kHn9Lb']");
+        return Common.getText(locator);
+    }
+    public static String getFacebook() {
+        By locator = By.xpath("//*[@id='homelink']");
+        return Common.getText(locator);
     }
 }
 

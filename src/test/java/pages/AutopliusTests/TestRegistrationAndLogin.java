@@ -1,50 +1,69 @@
 package pages.AutopliusTests;
 
 import Utils.Driver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
+import pages.Autoplius.AccountSetings;
 import pages.Autoplius.AutopliusTitle;
 import pages.Autoplius.RegistrationAndLogin;
 import pages.Common;
 
-import static pages.Autoplius.RegistrationAndLogin.getApple;
+import java.time.Duration;
+import java.util.Iterator;
+import java.util.Set;
+
+import static pages.Autoplius.AutopliusTitle.clickEN;
+import static pages.Autoplius.AutopliusTitle.clickLogin;
+import static pages.Autoplius.RegistrationAndLogin.*;
+import static pages.Common.waitTime10;
+import static pages.Common.waitTime15;
 
 public class TestRegistrationAndLogin extends AutopliusBoss {
+
+    @BeforeTest
+
+    public void pretest() {
+
+        AutopliusTitle.clickEN();
+        AutopliusTitle.clickLogin();
+        Common.waitTime10();
+    }
+
+    @AfterTest
+    public void close() {
+        System.out.println("*** Testas baigtas");
+        Driver.quit();
+
+    }
 
 
     @Test
     public static void testRegistration() {
-//      //  StepsBeforeTestLogin.steps();
-        AutopliusTitle.clickEN();
-        AutopliusTitle.clickLogin();
+
         Common.waitTime10();
         RegistrationAndLogin.clickRegister();
         RegistrationAndLogin.sendNewAccountName();
         RegistrationAndLogin.clickSignup();
-        RegistrationAndLogin.getReg();
+        String textR = getReg();
+        System.out.println("super duper " + textR);
         Assert.assertEquals(RegistrationAndLogin.getReg(), "Sign up");
-    }
-
-    // @AfterTest
-    public void close() {
-
-        System.out.println("-----------------   Testas baigtas--------------------------");
-        Driver.quit();
     }
 
     @Test
     public static void testLogWithAccount() {
-        //StepsBeforeTestLogin.steps();
-        AutopliusTitle.clickEN();
-        AutopliusTitle.clickLogin();
-        Common.waitTime15();
-        RegistrationAndLogin.sendAccountName();
-        RegistrationAndLogin.clickContinue();
+
+        sendAccountName();
+        clickContinue();
         RegistrationAndLogin.getLoginText();
-        System.out.println("super duper " + RegistrationAndLogin.getLoginText());
-        Assert.assertEquals(RegistrationAndLogin.getLoginText(), "Enter your password");
+        String textAc = getLoginText();
+        System.out.println("super duper " + textAc);
+        Assert.assertEquals(textAc, "Enter your password");
 
     }
 
@@ -52,57 +71,112 @@ public class TestRegistrationAndLogin extends AutopliusBoss {
     public static void testLoginWithGoogle() {
 
 
-        AutopliusTitle.clickEN();
-        AutopliusTitle.clickLogin();
-        RegistrationAndLogin.clickGoogle();
-        System.out.println("---------   waitReg();----------");
-        //Common.waitTime15();
-        System.out.println("---------   getGoogle X X;---------");
-        // RegistrationAndLogin.clickKitas();
-        System.out.println("---------    Nuskaitom tekstą;---------");
+        clickGoogle();
+        System.out.println("---------   wait Google ---------");
         Common.waitTime15();
-        RegistrationAndLogin.getGoogleText();
-        System.out.println("Prisijungimo su google tekstas" + RegistrationAndLogin.getGoogleText());
-        Assert.assertEquals(RegistrationAndLogin.getGoogleText(), "Prisijungimas naudojant 'Google'");
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
+        wait.until(ExpectedConditions.numberOfWindowsToBe(2));
+
+
+        String MainWindow = Driver.getDriver().getWindowHandle();
+
+        // To handle all new opened window.
+        Set<String> s1 = Driver.getDriver().getWindowHandles();
+        Iterator<String> i1 = s1.iterator();
+        String google = "xxx";
+        while (i1.hasNext()) {
+            String ChildWindow = i1.next();
+            if (!MainWindow.equalsIgnoreCase(ChildWindow)) {
+
+                // Switching to Child window
+                Driver.getDriver().switchTo().window(ChildWindow);
+                google = getGoogleText();
+
+                // Closing the Child Window.
+                Driver.getDriver().close();
+            }
+        }
+        // Switching to Parent window i.e Main Window.
+        Driver.getDriver().switchTo().window(MainWindow);
+        AccountSetings.closeModal();
+        System.out.println("Prisijungimo su google tekstas" + google);
+        Assert.assertEquals(google, "Prisijungimas naudojant „Google“");
         //Assert.assertEquals("","Prisijungimas naudojant „Google“");
     }
 
     @Test
     public static void testLoginWithApple() {
-        System.out.println("---------   Prisijungiam su Apple ----------");
-        // StepsBeforeTestLogin.steps();
-        AutopliusTitle.clickEN();
-        AutopliusTitle.clickLogin();
-        Common.waitTime15();
+
         RegistrationAndLogin.clickApple();
-        System.out.println("---------   Prisijungiam su  ----------");
-        Common.waitTime15();
-        System.out.println("---------   Bandom gauti Apple ----------");
-        RegistrationAndLogin.getApple();
-        System.out.println(" ***********   " + RegistrationAndLogin.getApple() + "    ************************");
-        Assert.assertEquals(RegistrationAndLogin.getApple(), "Apple ID");
+           Common.waitTime15();
+         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.numberOfWindowsToBe(2));
+        String MainWindow = Driver.getDriver().getWindowHandle();
+
+        // To handle all new opened window.
+        Set<String> s1 = Driver.getDriver().getWindowHandles();
+        Iterator<String> i1 = s1.iterator();
+        String apple = "xxx";
+        while (i1.hasNext()) {
+            String ChildWindow = i1.next();
+            if (!MainWindow.equalsIgnoreCase(ChildWindow)) {
+
+                // Switching to Child window
+
+                Driver.getDriver().switchTo().window(ChildWindow);
+                apple = RegistrationAndLogin.getApple();
+
+                // Closing the Child Window.
+
+                Driver.getDriver().close();
+            }
+        }
+        // Switching to Parent window
+        System.out.println(" ***********   " + apple + "    ************************");
+        Assert.assertEquals(apple, "Apple ID");
+        Driver.getDriver().switchTo().window(MainWindow);
+
     }
 
     @Test
     public static void testLoginWithFacebook() {
-        System.out.println("---------   Prisijungiam su Facebook ----------");
-        //StepsBeforeTestLogin.steps();
-        AutopliusTitle.clickEN();
-        AutopliusTitle.clickLogin();
-        Common.waitTime15();
-        RegistrationAndLogin.clickFacebook();
-        //Common.waitForFacebookAddPopupToBeVisible();
-        Common.waitTime15();
-        RegistrationAndLogin.clickAception();
-        Assert.assertEquals(RegistrationAndLogin.getFacebook(), "Autoplius.lt");
+        clickFacebook();
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.numberOfWindowsToBe(2));
+        String MainWindow = Driver.getDriver().getWindowHandle();
+
+        // To handle all new opened window.
+
+        Set<String> s1 = Driver.getDriver().getWindowHandles();
+        Iterator<String> i1 = s1.iterator();
+        String facebook = "xxx";
+        while (i1.hasNext()) {
+            String ChildWindow = i1.next();
+            if (!MainWindow.equalsIgnoreCase(ChildWindow)) {
+                // Switching to Child window
+                Driver.getDriver().switchTo().window(ChildWindow);
+                facebook = RegistrationAndLogin.getFacebook();
+                // Closing the Child Window.
+                Driver.getDriver().close();
+            }
+        }
+        // Switching to Parent window i.e Main Window.
+
+        Driver.getDriver().switchTo().window(MainWindow);
+        System.out.println(" ***********   " + facebook + "    ************************");
+        Assert.assertEquals(facebook, "Facebook");
     }
 
     @Test
     public static void testLoginAnyName() {
 
-            Assert.assertEquals(RegistrationAndLogin.getFacebook(), "Autoplius.lt");
-        }
+        RegistrationAndLogin.sendAnyName();
+        RegistrationAndLogin.clickContinue();
+        RegistrationAndLogin.getLoginErrorText();
+        String text = RegistrationAndLogin.getLoginErrorText();
+        System.out.println("super duper " + text);
+        Assert.assertEquals(text,
+                "You've entered a wrong phone number or email. Please check and try again.");
 
-
-
+    }
 }

@@ -2,14 +2,17 @@ package pages.AutopliusTests;
 
 import Utils.Driver;
 import org.testng.Assert;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.Autoplius.AccountSetings;
 import pages.Common;
 
-public class TestAccountSetings extends AccountSetings {
+import static pages.Common.waitTime10;
 
-    @BeforeTest
+public class TestAccountSetings  {
+
+    @BeforeClass
     public void init() {
         Driver.initialize();
         Common.openLink("https:Autoplius.lt");
@@ -19,8 +22,15 @@ public class TestAccountSetings extends AccountSetings {
         StepsBeforeTestLogin.steps();
         Common.waitTime15();
         AccountSetings.openSettings();
-        Common.waitTime15();
+
     }
+
+    @AfterClass
+
+    public static void close(){
+       Driver.quit();
+    }
+
 
     @Test
     public static void testFirstNameUpdate() {
@@ -36,7 +46,7 @@ public class TestAccountSetings extends AccountSetings {
         String name = "NameB";
         AccountSetings.changeSecondName(name);
         String result = AccountSetings.getSecondName();
-        Common.waitTime10();
+        waitTime10();
         Assert.assertEquals(result, name);
     }
 
@@ -52,17 +62,17 @@ public class TestAccountSetings extends AccountSetings {
     public static void testPhoneUpdateError() {
         String value = "+37061610";
         AccountSetings.changePhone(value);
-        Common.waitTime10();
+        Common.waitTime15();
         String result = AccountSetings.getPhoneError();
         Assert.assertEquals(result, "Phone number entered incorrectly");
         Common.waitTime15();
-
         String value2 = "+37061610020";
         AccountSetings.changePhoneText(value2);
         Common.waitTime15();
         String result2 = AccountSetings.getPhone();
         Assert.assertEquals(result2, value2);
-        AccountSetings.closeModal();
+
+
     }
 
 }

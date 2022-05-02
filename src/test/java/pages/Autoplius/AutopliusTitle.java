@@ -2,8 +2,8 @@ package pages.Autoplius;
 
 import org.openqa.selenium.By;
 import pages.AutopliusTests.AutopliusBoss;
-
 import pages.Common;
+
 
 public class AutopliusTitle extends AutopliusBoss {
 
@@ -67,50 +67,30 @@ public class AutopliusTitle extends AutopliusBoss {
     }
 
     public static void clickNewCar() {
-        By locator = By.xpath("");
+        By locator = By.cssSelector("body > div.wrapper > div.page-header > nav > div > ul.navigation-items > li:nth-child(2) > a");
         Common.clickElement(locator);
     }
 
     public static String getResultText4() {
-        By locator = By.xpath("");
+        By locator = By.cssSelector("body > div.body-wrapper > div.page-wrapper > div.content-container > h1");
         return Common.getText(locator);
     }
 
-    public static String getResultText5() {
-        By locator = By.xpath("");
+    public static void clickHome() {
+        By locator = By.xpath("//*[@data-event='Cars']");
+        Common.clickElement(locator);
+    }
+
+    public static String getButtonTextNewCars() {
+        By locator = By.xpath("//*[@id='submit-button']");
         return Common.getText(locator);
     }
 
+    public static String getSearchButtonText() {
+        By locator = By.xpath("//*[@class='button js-search-button']");
+        return Common.getText(locator);
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

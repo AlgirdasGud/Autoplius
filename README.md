@@ -11,6 +11,7 @@ Baigiamojo darbo reikalavimai:
 7. Darbas įkeltas į GIT
 8. Explicit Wait panaudojimas
 
+Papildomai naudoju TextNG.Xml įrankį tetstų rezultatams vizualizuoti.
 
 Testų scenarijų ir jų žingsnių aprašymai:
 
@@ -22,72 +23,78 @@ Testų scenarijų ir jų žingsnių aprašymai:
 1.Puslapis uždaromas
 
 --Testuojamas pagrindinis langas --
+1. Switching to English (defolt in Lithuanian)
+   1.1 The EN button is pressed
+   1.2 Scanning the text
+   1.3 Compare with the text "Classified ads"
 
-1. Anglų kalbos perjungimas (defoult lietuvių kalba)
-   1.1 Nuspaudžiamas mygtukas EN
-   1.2 Nuskaitome tekstą
-   1.3 Lyginame su tekstu "Classified ads"
+2. Switching the Latvian language
+   2.1 The POI button is pressed
+   2.2 We read the text
+   2.3 Compare with the text "on the screen"
 
-2. Latvių kalbos perjungimas
-   2.1 Nuspaudžiamas mygtukas LV
-   2.2 Nuskaitome tekstą
-   2.3 Lyginame su tekstu "************"
+3. Navigation to New Cars
+   3.1 Click on New Cars
+   3.2 Scanning the text
+   3.3 Compare with the text "on the screen"
 
-3. Navigacija į Nauji auto
-   3.1 Spaudžiam Nauji auto
-   3.2 Nuskaitome tekstą
-   3.3 Lyginame su tekstu "***********"
-4.Navigacija į Nauji auto
-   4.1 Spaudžiam Nauji auto
-   4.2 Nuskaitome tekstą
-   4.3 Lyginame su tekstu "***********"
+4. Is the BMW 116 search running?
+   4.1 Click New Auto
+   4.2 Scanning the text
+   4.3 Compare with the text "on the screen"
 
-5.Navigacija į Auto paskola
-   5.1 Spaudžiam Nauji auto
-   5.2 Nuskaitome tekstą
-   5.3 Lyginame su tekstu "***********"
+5. Do a motorcycle search
+   5.1 Click New Auto
+   5.2 We read the text
+   5.3 Compare with the text "on the screen"
 
 ----Testuojamas registracija - prisijungimas  EN----
 
-1. Testuojame registraciją
-   1.1 Spaudžiame EN
-   1.2 Spaudžiame Log in
-   1.3 Laukiam kol atsidaro prisijungimo langas
-   1.4 Spaudžiame Register
-   1.5 Parašome email
-   1.6 Spaudžiam Sign up
-   1.7 Nuskaitome tekstą
-   1.8 Lyginame su tekstu "************"
+1. Test registration and login
+   1.1 Press EN
+   1.2 Click Log in
+   1.3 Waiting for the login window to open
+   1.4 Click Register
+   1.5 Send an email
+   1.6 Click Sign up
+   1.7 Get the text
+   1.8 Compare with "on screen" text   
 
-2. Testuojame prisijungimą su validžiu email
-    2.1 Spaudžiame EN
-    2.2 Spaudžiame Log in
-    2.3 Laukiam kol atsidaro prisijungimo langas
-    2.4 Parašome email
-    2.5 Spaudžiam Continue
-    2.6 Nuskaitome tekstą
-    2.7 Lyginame su tekstu "************"
+2. Test login with a valid email
+   2.1 Click on EN
+   2.2 Click Log in
+   2.3 Waiting for the login window to open
+   2.4 Send an email
+   2.5 Click Continue
+   2.6 Get the text
+   2.7 Compare with "on the screen "text
 
-3. Testuojame prisijungimą su Facebook
-   3.1 Spaudžiame EN
-   3.2 Spaudžiame Log in
-   3.3 Laukiam kol atsidaro prisijungimo langas
-   3.4 Spaudžiam Log in with Facebook
-   3.5 Nuskaitome tekstą
-   3.6 Lyginame su tekstu "************
+3. Test login with Facebook
+   3.1 Click on EN
+   3.2 Click Log in
+   3.3 Waiting for the login window to open
+   3.4 Click Log in with Facebook
+   3.5 Get the text
+   3.6 Compare with  "on screen" text
 
-4. Testuojame prisijungimą su Google
-   4.1 Spaudžiame EN
-   4.2 Spaudžiame Log in
-   4.3 Laukiam kol atsidaro prisijungimo langas
-   4.4 Spaudžiam Log in with Google
-   4.5 Nuskaitome tekstą
-   4.6 Lyginame su tekstu "************
+4. Test login with Google
+   4.1 Click on EN
+   4.2 Click Log in
+   4.3 Waiting for the login window to open
+   4.4 Click Log in with Google
+   4.5 Get the text
+   4.6 Compare with "on screen" text
 
-5.Testuojame prisijungimą su Apple
-   5.1 Spaudžiame EN
-   5.2 Spaudžiame Log in
-   5.3 Laukiam kol atsidaro prisijungimo langas
-   5.4 Spaudžiam Log in with Apple
-   5.5 Nuskaitome tekstą
-   5.6 Lyginame su tekstu "************ 
+5. .We are testing the connection with Apple
+   5.1 Press EN
+   5.2 Click Log in
+   5.3 Waiting for the login window to open
+   5.4 Click Log in with Apple
+   5.5 Get the text
+   5.6 Compare with on "screen" text .
+ 
+----Test Acount settings  ----
+
+
+
+

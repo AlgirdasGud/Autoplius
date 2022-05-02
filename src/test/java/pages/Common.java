@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 import static Utils.Driver.driver;
 
@@ -43,7 +42,7 @@ public class Common {
     }
 
     public static void closeAdd() {
-        System.out.println("------------- u z d a r o m e rekAMA--------");
+        System.out.println("------------- u z d a r o m e r  r e k l a m a --------");
         By locator = By.xpath("//*[@id='onetrust-accept-btn-handler']");
         Common.clickElement(locator);
 
@@ -58,12 +57,14 @@ public class Common {
     }
 
     public static void waitTime15() {
+        System.out.println("--------- wait 15  seconds --------------");
+
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
 
     }
 
     public static void waitTime10() {
-        System.out.println("--------- wait 5 seconds --------------");
+        System.out.println("--------- wait 10seconds --------------");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
 }

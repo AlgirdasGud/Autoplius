@@ -1,27 +1,25 @@
 package pages.AutopliusTests;
 
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.Autoplius.AutopliusTitle;
+import pages.Common;
 
+import static pages.Autoplius.AutopliusTitle.*;
 
-import static pages.Autoplius.AutopliusTitle.getResultTextEN;
-import static pages.Autoplius.AutopliusTitle.getResultTextLV;
 
 public class TestAutopliusTitle extends AutopliusBoss {
 
     @Test
     public static void testEN() {
-
-        AutopliusTitle.clickEN();
+        clickEN();
         Assert.assertEquals(getResultTextEN(), "Classified ads");
         System.out.println("************** " + getResultTextEN());
     }
 
     @Test
     public static void testLV() {
-        AutopliusTitle.clickLV();
+        clickLV();
         Assert.assertEquals(getResultTextLV(), "Sludinājumi");
         System.out.println("************** " + getResultTextLV());
 
@@ -29,32 +27,32 @@ public class TestAutopliusTitle extends AutopliusBoss {
 
     @Test
     public static void testFreeValuation() {
-        AutopliusTitle.clickReg();
-        AutopliusTitle.getResultTextEN();
-        Assert.assertEquals("", "");
+        AutopliusTitle.clickHome();
+        Common.waitTime10();
+        String text = AutopliusTitle.getSearchButtonText();
+        Assert.assertEquals(text, "Search");
 
     }
 
     @Test
     public static void testNewCar() {
+        AutopliusTitle.clickEN();
         AutopliusTitle.clickNewCar();
-        AutopliusTitle.getResultText4();
-        Assert.assertEquals("", "");
-
+        Common.waitTime10();
+        String text = AutopliusTitle.getResultText4();
+        Assert.assertEquals(text, "Choose a new car");
     }
 
     @Test
     public static void testFreeValuation1() {
-        AutopliusTitle.clickReg();
-        AutopliusTitle.getResultText5();
-        Assert.assertEquals("", "");
+        AutopliusTitle.clickEN();
+        AutopliusTitle.clickNewCar();
+        Common.waitTime10();
+        String text = AutopliusTitle.getButtonTextNewCars();
+        Assert.assertEquals(text, "See offers");
 
     }
-
 }
-
-
-
 
 
 
