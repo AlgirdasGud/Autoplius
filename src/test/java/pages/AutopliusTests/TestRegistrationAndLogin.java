@@ -4,8 +4,6 @@ import Utils.Driver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
@@ -18,11 +16,7 @@ import java.time.Duration;
 import java.util.Iterator;
 import java.util.Set;
 
-import static pages.Autoplius.AutopliusTitle.clickEN;
-import static pages.Autoplius.AutopliusTitle.clickLogin;
 import static pages.Autoplius.RegistrationAndLogin.*;
-import static pages.Common.waitTime10;
-import static pages.Common.waitTime15;
 
 public class TestRegistrationAndLogin extends AutopliusBoss {
 
@@ -44,7 +38,7 @@ public class TestRegistrationAndLogin extends AutopliusBoss {
 
 
     @Test
-    public static void testRegistration() {
+    public static void testFRegistration() {
 
         Common.waitTime10();
         RegistrationAndLogin.clickRegister();
@@ -56,7 +50,7 @@ public class TestRegistrationAndLogin extends AutopliusBoss {
     }
 
     @Test
-    public static void testLogWithAccount() {
+    public static void testELogWithAccount() {
 
         sendAccountName();
         clickContinue();
@@ -65,10 +59,11 @@ public class TestRegistrationAndLogin extends AutopliusBoss {
         System.out.println("super duper " + textAc);
         Assert.assertEquals(textAc, "Enter your password");
 
+
     }
 
     @Test
-    public static void testLoginWithGoogle() {
+    public static void testALoginWithGoogle() {
 
 
         clickGoogle();
@@ -97,13 +92,14 @@ public class TestRegistrationAndLogin extends AutopliusBoss {
         // Switching to Parent window i.e Main Window.
         Driver.getDriver().switchTo().window(MainWindow);
         AccountSetings.closeModal();
-        System.out.println("Prisijungimo su google tekstas" + google);
+        System.out.println("Prisijungimo su google tekstas - '" + google+"'");
         Assert.assertEquals(google, "Prisijungimas naudojant „Google“");
         //Assert.assertEquals("","Prisijungimas naudojant „Google“");
+
     }
 
     @Test
-    public static void testLoginWithApple() {
+    public static void testBLoginWithApple() {
 
         RegistrationAndLogin.clickApple();
            Common.waitTime15();
@@ -130,15 +126,16 @@ public class TestRegistrationAndLogin extends AutopliusBoss {
             }
         }
         // Switching to Parent window
-        System.out.println(" ***********   " + apple + "    ************************");
+        System.out.println(" Prisijungimo su Apple tekstas -  '" + apple + "'");
         Assert.assertEquals(apple, "Apple ID");
         Driver.getDriver().switchTo().window(MainWindow);
 
     }
 
     @Test
-    public static void testLoginWithFacebook() {
+    public static void testCLoginWithFacebook() {
         clickFacebook();
+
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.numberOfWindowsToBe(2));
         String MainWindow = Driver.getDriver().getWindowHandle();
@@ -161,20 +158,23 @@ public class TestRegistrationAndLogin extends AutopliusBoss {
         // Switching to Parent window i.e Main Window.
 
         Driver.getDriver().switchTo().window(MainWindow);
-        System.out.println(" ***********   " + facebook + "    ************************");
+        System.out.println("Prisijungimo su Facebook tekstas - '" + facebook + "'");
         Assert.assertEquals(facebook, "Facebook");
+
     }
 
     @Test
-    public static void testLoginAnyName() {
+    public static void testDLoginAnyName() {
+
 
         RegistrationAndLogin.sendAnyName();
         RegistrationAndLogin.clickContinue();
         RegistrationAndLogin.getLoginErrorText();
         String text = RegistrationAndLogin.getLoginErrorText();
-        System.out.println("super duper " + text);
+        System.out.println("Gaunamas tekstas - ' " + text+"'");
         Assert.assertEquals(text,
                 "You've entered a wrong phone number or email. Please check and try again.");
+
 
     }
 }
