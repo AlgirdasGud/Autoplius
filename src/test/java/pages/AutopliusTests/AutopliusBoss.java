@@ -2,9 +2,8 @@ package pages.AutopliusTests;
 
 import Utils.Driver;
 import Utils.TestListener;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.*;
+import pages.Autoplius.AccountSetings;
 import pages.Common;
 
 
@@ -29,6 +28,24 @@ public class AutopliusBoss {
 
         System.out.println("-----------------   Testas baigtas--------------------------");
         Driver.quit();
+    }
+    @BeforeClass
+    public void initC() {
+        Driver.initialize();
+        Common.openLink("https:Autoplius.lt");
+        Driver.driver.manage().window().maximize();
+        Common.waitForAddPopupToBeVisible();
+        Common.closeAdd();
+        StepsBeforeTestLogin.steps();
+        Common.waitTime15();
+        AccountSetings.openSettings();
+
+    }
+
+    @AfterClass
+
+   public static void closeC(){
+       Driver.quit();
     }
 }
 

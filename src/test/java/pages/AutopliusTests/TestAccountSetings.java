@@ -2,34 +2,13 @@ package pages.AutopliusTests;
 
 import Utils.Driver;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.Autoplius.AccountSetings;
 import pages.Common;
 
 import static pages.Common.waitTime10;
 
-public class TestAccountSetings  {
-
-    @BeforeClass
-    public void init() {
-        Driver.initialize();
-        Common.openLink("https:Autoplius.lt");
-        Driver.driver.manage().window().maximize();
-        Common.waitForAddPopupToBeVisible();
-        Common.closeAdd();
-        StepsBeforeTestLogin.steps();
-        Common.waitTime15();
-        AccountSetings.openSettings();
-
-    }
-
-    @AfterClass
-
-    public static void close(){
-       Driver.quit();
-    }
+public class TestAccountSetings extends AutopliusBoss {
 
 
     @Test

@@ -76,8 +76,6 @@ public class TestRegistrationAndLogin extends AutopliusBoss {
         Common.waitTime15();
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
         wait.until(ExpectedConditions.numberOfWindowsToBe(2));
-
-
         String MainWindow = Driver.getDriver().getWindowHandle();
 
         // To handle all new opened window.
