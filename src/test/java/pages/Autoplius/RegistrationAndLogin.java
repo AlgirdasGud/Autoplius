@@ -40,10 +40,10 @@ public class RegistrationAndLogin extends AutopliusBoss {
         Common.clickElement(locator);
     }
 
-//    public static String getFacebook() {
-//        By locator = By.xpath("//*[@id='homelink']");
-//        return Common.getText(locator);
-//    }
+    public static String getFacebook() {
+        By locator = By.xpath("//*[@id='homelink']");
+        return Common.getText(locator);
+    }
 
     public static String getGoogle() {
         By locator = By.xpath("//div[@class='kHn9Lb']");
@@ -110,9 +110,14 @@ public class RegistrationAndLogin extends AutopliusBoss {
         By locator = By.xpath("//*[@class='kHn9Lb']");
         return Common.getText(locator);
     }
-    public static String getFacebook() {
-        By locator = By.xpath("//*[@id='homelink']");
-        return Common.getText(locator);
+
+
+    public static void clickLogOut() {
+        By locator = By.cssSelector("body > div.body-wrapper > div.page-wrapper > div.content-container > div > ul > li.no-separator > a");
+        Common.clickElement(locator);
+
+
+//    }
     }
 }
 
